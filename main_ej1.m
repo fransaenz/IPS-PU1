@@ -1,7 +1,7 @@
 % SCRIPT PRINCIPAL
 
 %carga la senial con un numero de alumno como parametro
-[x, n] = senial(038973);
+[n, x] = senial(38973);
 
 %grafica de la funcion
 figure(1);
@@ -18,16 +18,35 @@ X = fft(x, M);     %calculo de TDF
 
 %grafico del modulo de X
 modulo_X = abs(X);
-s = (0:N-1)/N;
+s = (0:M-1)/M;
 figure;
 plot(s, modulo_X); grid on;
 xlabel('s');
 ylabel('|X(s)|');
+title('Modulo de la TFTD aproximada');
+
+%grafico del modulo de X centrado, para mejor interpretacion
+s_centrado = linspace(-0.5, 0.5, M);
+figure;
+plot(s_centrado, fftshift(modulo_X)); grid on;
+xlabel('s');
+ylabel('|X(s)|');
+title('Modulo de la TFTD aproximada centrada en 0');
+
 
 %grafico de la fase de X
-phaseX_unwrapped = unwrap(phaseX);
+fase_X = angle(X);
+fase_X_unwrapped = unwrap(fase_X);
 
 figure;
-plot(s, phaseX_unwrapped); grid on;
+plot(s, fase_X_unwrapped); grid on;
 xlabel('s');
 ylabel('arg(X(s))[rad]');
+title('Fase de la TFTD aproximada');
+
+%grafico de la fase de X centrada
+figure;
+plot(s_centrado, fftshift(fase_X_unwrapped)); grid on;
+xlabel('s');
+ylabel('arg(X(s)) [rad]');
+title('Fase de la TFTD aproximada centrada en 0');
