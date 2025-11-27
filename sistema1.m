@@ -1,0 +1,48 @@
+%%respuesta impulsional del sistema 1
+
+ %defino cuantas muestras de h quiero en la grafica
+N = 5;
+L = -N:N;
+h = zeros(size(L));
+
+for k = 1:length(L)
+  n = L(k)
+
+  if n == 0
+
+    h(k) = 1/2;
+
+  elseif n == 1
+
+    h(k) = 1/2;
+
+  end
+ end
+
+
+ %grafica
+figure;
+stem(L , h, 'filled', 'MarkerSize', 3);
+grid on;
+xlabel('n');
+ylabel('h[n]');
+title('Respuesta impulsional h[n] del Sistema 1');
+ylim([min(h)-0.1, max(h)+0.1]);
+
+
+
+
+%%respuesta en frecuencia del sistema 1
+M = 1000
+s = linspace(-0.5, 0.5, M)
+H = 1/2 + (1/2)*exp(-j*2*pi*s)
+
+%grafico del modulo
+modulo_H = abs(H)
+figure;
+plot(s, modulo_H);
+grid on;
+xlabel('s');
+ylabel('|H(e^{j2πs})|','interpreter','latex');
+title('Modulo de la respuesta frecuencial H(e^{j2πs}) del Sistema 1', 'interpreter', 'latex');
+
