@@ -59,9 +59,17 @@ title('Fase de la TFTD aproximada centrada en 0');
 
 
  %%2.
+sistema1Graph;
+sistema2Graph;
+sistema3Graph;
+sistema4Graph;
 
+%%3.
+verificacion_hyH_sistemas;
 
+%%4. y 5.
 
+salidas;
 
 
 
