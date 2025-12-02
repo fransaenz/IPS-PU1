@@ -85,10 +85,10 @@ H3_num_per = [H3_num, H3_num, H3_num];
 H4_num_per = [H4_num, H4_num, H4_num];
 
 s_analit = -1:0.001:1
-H1_analit = 0.5 + 0.5*exp(-j*2*pi*s);
-H2_analit = 0.5 - 0.5*exp(-j*2*pi*s);
-H3_analit = (1/4) * (1 + exp(-j*2*pi*s)) ./ (1 - 0.5*exp(-j*2*pi*s));
-H4_analit = (1/4) * (1 - exp(-j*2*pi*s)) ./ (1 + 0.5*exp(-j*2*pi*s));
+H1_analit = 0.5 + 0.5*exp(-j*2*pi*s_analit);
+H2_analit = 0.5 - 0.5*exp(-j*2*pi*s_analit);
+H3_analit = (1/4) * (1 + exp(-j*2*pi*s_analit)) ./ (1 - 0.5*exp(-j*2*pi*s_analit));
+H4_analit = (1/4) * (1 - exp(-j*2*pi*s_analit)) ./ (1 + 0.5*exp(-j*2*pi*s_analit));
 
 %graficos
 %s1
