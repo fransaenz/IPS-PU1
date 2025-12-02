@@ -33,16 +33,26 @@ ylim([min(h)-0.1, max(h)+0.1]);
 
 
 %%respuesta en frecuencia del sistema 1
-M = 1000
-s = linspace(-0.5, 0.5, M)
-H = 1/2 + (1/2)*exp(-j*2*pi*s)
+M = 1000;
+s = linspace(-1, 1, M);
+H = 1/2 + (1/2)*exp(-j*2*pi*s);
 
 %grafico del modulo
-modulo_H = abs(H)
+modulo_H = abs(H);
 figure;
 plot(s, modulo_H);
 grid on;
 xlabel('s');
 ylabel('|H(e^{j2πs})|','interpreter','latex');
 title('Modulo de la respuesta frecuencial H(e^{j2πs}) del Sistema 1', 'interpreter', 'latex');
+ylim([min(modulo_H), max(modulo_H)+0.1]);
+
+%grafico del fase
+figure;
+fase_H = angle(H);
+plot(s, fase_H);
+grid on;
+xlabel('s');
+ylabel('arg(e^{j2πs})','interpreter','latex');
+title('Fase de la respuesta frecuencial  H(e^{j2πs}) del Sistema 1', 'interpreter', 'latex');;
 
